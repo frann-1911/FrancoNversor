@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrancoNversor</title>
+    <link rel="stylesheet" href="syles.css">
+    <link rel="icon" href="/assets/MALDO.jpg"> </head>
+<body>
+    <header> <h1>Bienvenido al Conversor más útil de todos</h1>
+        <h1>El FranConversor</h1>
+    </header> <hr>
+    <div>
+        <h2>Longitud (Pies y Pulgadas - Centímetros)</h2>
+
+        <label for="inputPies">Pies:</label>
+        <input type="number" id="inputPies">
+        <br>
+        <label for="inputPulgadas">Pulgadas:</label>
+        <input type="number" id="inputPulgadas">
+        <br>
+        <button id="btnPyPtoCm">Convertir a Centímetros</button>
+        <p>Resultado: <span id="resultadoCm"></span></p>
+
+        <br>
+
+        <label for="inputCm">Centímetros:</label>
+        <input type="number" id="inputCm">
+        <br>
+        <button id="btnCmtoPyP">Convertir a Pies y Pulgadas</button>
+        <p>Resultado: <span id="resultadoPyP"></span></p>
+    </div>
+
+    <hr>
+    <div>
+        <h2>Temperaturas (Fahrenheit - Celsius)</h2>
+        <label for="inputFahrenheit">Fahrenheit:</label>
+        <input type="number" id="inputFahrenheit">
+        <br>
+        <button id="btnFtoC">Convertir a Celsius</button>
+        <p>Resultado Celsius: <span id="resultadoCelsius"></span></p>
+
+        <br>
+
+        <label for="inputCelsius">Celsius:</label>
+        <input type="number" id="inputCelsius">
+        <br>
+        <button id="btnCtoF">Convertir a Fahrenheit</button>
+        <p>Resultado Fahrenheit: <span id="resultadoFahrenheit"></span></p>
+    </div>
+
+    <hr>
+    <div>
+        <h2>Masa (Libras - Kilos)</h2>
+        <label for="inputLibras">Libras:</label>
+        <input type="number" id="inputLibras">
+        <br>
+        <button id="btnLbsToKg">Convertir a Kilos</button>
+        <p>Resultado Kilos: <span id="resultadoKilos"></span></p>
+
+        <br>
+
+        <label for="inputKilos">Kilos:</label>
+        <input type="number" id="inputKilos">
+        <br>
+        <button id="btnKgToLbs">Convertir a Libras</button>
+        <p>Resultado Libras: <span id="resultadoLibras"></span></p>
+    </div>
+
+    <hr>
+    <div>
+        <h2>Volumen (Litros - Galones)</h2>
+        <div>
+            <label for="inputLitros">Litros:</label>
+            <input type="number" id="inputLitros">
+            <br>
+            <button id="btnLitrosToGalones">Convertir a Galones</button>
+            <p>Resultado Galones: <span id="resultadoGalones"></span></p>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="inputGalones">Galones:</label>
+            <input type="number" id="inputGalones">
+            <br>
+            <button id="btnGalonesToLitros">Convertir a Litros</button>
+            <p>Resultado Litros: <span id="resultadoLitros"></span></p>
+        </div>
+    </div>
+
+    <hr>
+    <div>
+        <h2>Velocidad (Km/h - Millas/h)</h2>
+        <div>
+            <label for="inputKmH">Km/h:</label>
+            <input type="number" id="inputKmH">
+            <br>
+            <button id="btnKmHToMph">Convertir a Millas/h</button>
+            <p>Resultado Millas/h: <span id="resultadoMph"></span></p>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="inputMph">Millas/h:</label>
+            <input type="number" id="inputMph">
+            <br>
+            <button id="btnMphToKmH">Convertir a Km/h</button>
+            <p>Resultado Km/h: <span id="resultadoKmH"></span></p>
+        </div>
+    </div>
+
+    <hr>
+    <div>
+        <h2>Almacenamiento Digital</h2>
+        Convertir desde:
+        <select id="storageUnitFrom">
+            <option value="bytes">Bytes</option>
+            <option value="kilobytes">Kilobytes (KB)</option>
+            <option value="megabytes">Megabytes (MB)</option>
+            <option value="gigabytes">Gigabytes (GB)</option>
+            <option value="terabytes">Terabytes (TB)</option>
+            <option value="bits">Bits</option>
+        </select>
+        Valor:
+        <input type="number" id="storageValue" style="width: 100px;">
+        A:
+        <select id="storageUnitTo">
+            <option value="bytes">Bytes</option>
+            <option value="kilobytes">Kilobytes (KB)</option>
+            <option value="megabytes">Megabytes (MB)</option>
+            <option value="gigabytes">Gigabytes (GB)</option>
+            <option value="terabytes">Terabytes (TB)</option>
+            <option value="bits">Bits</option>
+        </select>
+        <button id="btnConvertStorage">Convertir</button>
+        <br><br>
+        Resultado: <span id="storageResult"></span>
+    </div>
+
+    <hr>
+    <div>
+        <h2>Conversor de Divisas</h2>
+        <p style="font-size: 0.9em; color: gray;">Tasas de cambio de ejemplo. Para tasas reales, se requiere una API externa.</p>
+        Convertir de:
+        <select id="currencyFrom">
+            <option value="ARS">Peso Argentino (ARS)</option>
+            <option value="USD">Dólar Estadounidense (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="GBP">Libra Esterlina (GBP)</option>
+        </select>
+        Monto:
+        <input type="number" id="currencyAmount" placeholder="Ej: 100" style="width: 120px;">
+        A:
+        <select id="currencyTo">
+            <option value="USD">Dólar Estadounidense (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="GBP">Libra Esterlina (GBP)</option>
+            <option value="ARS">Peso Argentino (ARS)</option>
+        </select>
+        <button id="btnConvertCurrency">Convertir</button>
+        <br><br>
+        Resultado: <span id="currencyResult"></span>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
