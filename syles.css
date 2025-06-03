@@ -1,32 +1,28 @@
-/* style.css */
-
-/* --- 1. Variables CSS (Opcional, pero muy recomendado incluso en un solo archivo) --- */
 :root {
-    --primary-color: #007bff; /* Azul vibrante */
-    --secondary-color: #6c757d; /* Gris oscuro */
-    --accent-color: #28a745; /* Verde para acentos - lo haremos más fuerte para el resultado */
-    --background-color: #f8f9fa; /* Fondo claro */
-    --card-background: #ffffff; /* Fondo de las tarjetas */
-    --border-color: #dee2e6; /* Borde de elementos */
-    --text-color: #343a40; /* Texto principal */
-    --light-text-color: #6c757d; /* Texto secundario */
-    --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra suave */
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --accent-color: #28a745;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --border-color: #dee2e6;
+    --text-color: #343a40;
+    --light-text-color: #6c757d;
+    --shadow-color: rgba(0, 0, 0, 0.1);
 
     --font-family-sans: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --font-family-mono: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-    --spacing-xs: 0.25rem; /* 4px */
-    --spacing-sm: 0.5rem;  /* 8px */
-    --spacing-md: 1rem;    /* 16px */
-    --spacing-lg: 1.5rem;  /* 24px */
-    --spacing-xl: 2rem;    /* 32px */
-    --spacing-xxl: 3rem;   /* 48px */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
 
     --border-radius-sm: 4px;
     --border-radius-md: 8px;
 }
 
-/* --- 2. Estilos Base / Reset Básico --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -38,8 +34,8 @@ body {
     line-height: 1.6;
     background-color: var(--background-color);
     color: var(--text-color);
-    padding: var(--spacing-lg); /* Espaciado general en el cuerpo */
-    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la vista */
+    padding: var(--spacing-lg);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -54,83 +50,69 @@ p {
     margin-bottom: var(--spacing-md);
 }
 
-/* --- 3. Estilos de Layout General --- */
 .container {
     max-width: 1200px;
-    margin: var(--spacing-xl) auto; /* Centrar y dar margen arriba/abajo */
+    margin: var(--spacing-xl) auto;
     padding: var(--spacing-md);
 }
 
 .main-content {
     display: grid;
-    /* Grid responsivo: columnas de mínimo 300px, se ajustan a la anchura disponible */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-xl); /* Espacio entre las secciones de conversores */
+    gap: var(--spacing-xl);
 }
 
-/* --- 4. Estilos del Encabezado (Header) --- */
 header {
     text-align: center;
     padding: var(--spacing-lg) var(--spacing-md);
-    /* Puedes volver a agregar background-color si quieres un color sólido detrás de la imagen para fallback */
-    /* background-color: var(--card-background); */
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 2px 4px var(--shadow-color);
     margin-bottom: var(--spacing-md);
 
-    /* --- PROPIEDADES DE FONDO ACTUALIZADAS --- */
-    background-image: url('/assets/high-quality-pictures-1920-x-1080-6o1pwviud2onajbk.jpg'); /* ¡Asegúrate de que esta ruta sea correcta! */
-    /* Si quieres probar con MALDO.jpg de nuevo: background-image: url('/assets/MALDO.jpg'); */
+    background-image: url('./assets/high-quality-pictures-1920-x-1080-6o1pwviud2onajbk.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     
-    /* --- AJUSTES PARA LA IMAGEN Y TEXTO --- */
-    min-height: 250px; /* Asegura suficiente altura para ver la imagen */
-    color: white; /* Color del texto */
+    min-height: 250px;
+    color: white;
 
-    /* Overlay y posicionamiento para el texto */
-    position: relative; /* Necesario para posicionar el pseudo-elemento */
-    overflow: hidden; /* Asegura que el pseudo-elemento no se salga del header */
+    position: relative;
+    overflow: hidden;
 
-    /* Opcional: Centrar el contenido verticalmente si el header es muy alto */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra los elementos hijos (h1, p) verticalmente */
-    align-items: center; /* Centra los elementos hijos horizontalmente */
+    justify-content: center;
+    align-items: center;
 }
 
-/* Pseudo-elemento para crear un overlay oscuro sobre la imagen de fondo */
 header::before {
-    content: ""; /* Obligatorio para pseudo-elementos */
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Negro con 40% de opacidad. Ajusta el 0.4 para más/menos oscuridad */
-    z-index: 1; /* Asegura que esté por encima de la imagen de fondo */
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
 header h1,
 header p {
-    /* Asegurar que el texto sea legible sobre la imagen y el overlay */
     color: white;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra más fuerte para mejor legibilidad */
-    position: relative; /* Asegura que el texto esté por encima del overlay */
-    z-index: 2; /* Mayor z-index que el overlay */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 2;
 }
 
-/* --- 5. Estilos para las Secciones de Conversor Individuales --- */
 .converter-section {
     background-color: var(--card-background);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-md);
     padding: var(--spacing-xl);
-    box-shadow: 0 6px 12px var(--shadow-color); /* Sombra más pronunciada */
-    display: flex; /* Usar flexbox para organizar el contenido dentro de la sección */
+    box-shadow: 0 6px 12px var(--shadow-color);
+    display: flex;
     flex-direction: column;
-    /* justify-content: space-between;  Lo quitamos para que el botón no se estire abajo */
 }
 
 .converter-section h2 {
@@ -147,71 +129,60 @@ header p {
 }
 
 .converter-group label {
-    display: block; /* Para que cada label ocupe su propia línea */
+    display: block;
     font-weight: bold;
     margin-bottom: var(--spacing-xs);
     color: var(--text-color);
 }
 
-/* ESTILOS PARA DESTACAR EL RESULTADO (se mantienen como antes) */
 .converter-result {
     margin-top: var(--spacing-lg);
-    font-size: 1.8rem; /* Tamaño de fuente grande */
-    font-weight: 800; /* Extra negrita */
-    color: #004d00; /* Verde oscuro potente */
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #004d00;
     text-align: center;
-    padding: var(--spacing-lg); /* Relleno generoso */
-    background-color: #d4edda; /* Fondo verde claro */
-    border: 1px solid #28a745; /* Borde fuerte */
+    padding: var(--spacing-lg);
+    background-color: #d4edda;
+    border: 1px solid #28a745;
     border-radius: var(--border-radius-sm);
     word-wrap: break-word;
-    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2); /* Sombra que resalta */
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
 }
 
-/* Estilo para las secciones de conversor bidireccional (si tienen diseño especial) */
 .converter-bidirectional .converter-group {
     display: flex;
-    flex-direction: column; /* Apilar inputs y selects */
-    gap: var(--spacing-md); /* Espacio entre ellos */
+    flex-direction: column;
+    gap: var(--spacing-md);
 }
 
-
-/* --- 6. Estilos de Botones (¡MODIFICADOS DE NUEVO!) --- */
 button {
-    /* Quitamos display: block y width: 100% */
-    /* display: inline-block; ya que queremos que el botón ocupe solo su contenido */
-    /* Lo encerramos en un div para centrarlo */
     background-color: var(--primary-color);
     color: white;
-    padding: var(--spacing-md) var(--spacing-xl); /* MÁS ALTO y ANCHO FIJO */
+    padding: var(--spacing-md) var(--spacing-xl);
     border: none;
     border-radius: var(--border-radius-sm);
     cursor: pointer;
-    font-size: 1rem; /* Volvemos a un tamaño de fuente estándar */
+    font-size: 1rem;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.1s ease;
-    /* width: 100%;  <-- ELIMINADO para que no ocupe todo el ancho */
     margin-top: var(--spacing-lg);
     box-shadow: 0 2px 4px var(--shadow-color);
-    flex-shrink: 0; /* Asegura que el botón no se encoja en flexbox */
+    flex-shrink: 0;
 }
 
-/* Nuevo contenedor para los botones para centrar y controlar su ancho */
 .button-container {
-    display: flex; /* Usamos flexbox para centrar el botón */
-    justify-content: center; /* Centra el botón horizontalmente */
-    margin-top: var(--spacing-md); /* Margen para separar del input de arriba */
-    width: 100%; /* Asegura que el contenedor ocupe el 100% de la sección */
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-md);
+    width: 100%;
 }
 
-/* Ajuste para el botón específico si está dentro de button-container */
 .button-container button {
-    width: auto; /* El botón solo ocupará el ancho de su contenido + padding */
-    min-width: 150px; /* Ancho mínimo para que no sea muy estrecho */
-    max-width: 80%; /* Máximo el 80% del contenedor para que no se pegue a los bordes */
-    margin: 0; /* Reiniciar márgenes ya que el centrado lo maneja el padre */
+    width: auto;
+    min-width: 150px;
+    max-width: 80%;
+    margin: 0;
 }
-
 
 button:hover {
     background-color: #0056b3;
@@ -224,8 +195,6 @@ button:active {
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-
-/* --- 7. Estilos de Campos de Formulario (Inputs y Selects) --- */
 input[type="number"],
 input[type="text"],
 select {
@@ -248,13 +217,11 @@ select:focus {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-/* Estilo específico para el input de divisas para hinting (opcional) */
 #currencyAmount {
     font-family: var(--font-family-mono);
     text-align: right;
 }
 
-/* --- 8. Media Queries para Responsividad (Opcional, si lo necesitas) --- */
 @media (max-width: 768px) {
     .main-content {
         grid-template-columns: 1fr;
@@ -273,15 +240,15 @@ select:focus {
     }
 
     .converter-result {
-        font-size: 1.5rem; /* Ajustar tamaño de resultado para pantallas pequeñas */
+        font-size: 1.5rem;
         padding: var(--spacing-md);
     }
 
     .button-container button {
-        min-width: unset; /* Quitar min-width en móvil para que se ajuste mejor */
-        width: 90%; /* Que ocupe un poco más de ancho en móvil, pero no 100% */
-        font-size: 0.9rem; /* Fuente un poco más pequeña */
-        padding: var(--spacing-sm) var(--spacing-md); /* Padding más estándar */
+        min-width: unset;
+        width: 90%;
+        font-size: 0.9rem;
+        padding: var(--spacing-sm) var(--spacing-md);
     }
 }
 
